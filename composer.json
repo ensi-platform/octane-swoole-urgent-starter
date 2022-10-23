@@ -1,5 +1,5 @@
 {
-    "name": "ensi/laravel-octane-starter",
+    "name": "ensi/octane-swoole-urgent-starter",
     "type": "library",
     "license": "MIT",
     "autoload": {
