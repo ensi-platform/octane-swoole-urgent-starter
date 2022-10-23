@@ -20,6 +20,7 @@ class EmergencyWorker implements Worker
     public function __construct(
         protected Client $client,
         protected Throwable $exception,
+        protected array $serverState,
     ) {
         $this->whoops = new Run();
         $this->whoops->allowQuit(false);
@@ -32,9 +33,18 @@ class EmergencyWorker implements Worker
         $response = new Response();
         $response->setStatusCode(500);
         $response->headers->add(['Content-Type' => 'text/plain']);
-        $response->setContent($this->whoops->handleException($this->exception));
+        if ($this->showError()) {
+            $response->setContent($this->whoops->handleException($this->exception));
+        } else {
+            $response->setContent('Server error.');
+        }
 
         $this->client->respond($context, new OctaneResponse($response));
+    }
+
+    private function showError(): bool
+    {
+        return $this->serverState['octaneConfig']['swoole']['show_fatal_error'] ?? false;
     }
 
     public function boot(): void

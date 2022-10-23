@@ -28,7 +28,7 @@ class OnWorkerStart extends OriginalOnWorkerStart
             ]);
         } catch (Throwable $e) {
             Stream::throwable($e);
-            return new EmergencyWorker($this->workerState->client, $e);
+            return new EmergencyWorker($this->workerState->client, $e, $this->serverState);
         }
     }
 

@@ -13,6 +13,6 @@
         "filp/whoops": "^2.14"
     },
     "bin": [
-        "bin/swoole-server-dev"
+        "bin/urgent-swoole-server"
     ]
 }
