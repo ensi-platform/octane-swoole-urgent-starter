@@ -22,3 +22,16 @@ and add this section to **config/octane.php** file
 Just start octane server with swoole backend and --watch option, 
 and see how it reloads after very fatal errors.  
 If you want to see error message in http response, set true to OCTANE_SHOW_FATAL_ERROR environment variable.
+
+## When service works in ELC workspace
+
+Old elc workspace template uses hack for reloading code without container restarts.  
+You should to replace last artisan command in templates/swoole-X.X/php/entrypoint to this
+
+```shell
+OCTANE_SHOW_FATAL_ERROR=true php artisan octane:swoole --watch --host=0.0.0.0 --workers=1 --task-workers=1 || sleep 3600
+```
+
+## License
+
+[Открытая лицензия на право использования программы для ЭВМ Greensight Ecom Platform (GEP)](LICENSE.md).
