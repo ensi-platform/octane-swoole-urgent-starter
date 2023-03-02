@@ -7,7 +7,7 @@ Original server stops in this case.
 
 Install package
 ```
-composer install ensi/octane-swoole-urgent-starter
+composer require ensi/octane-swoole-urgent-starter
 ```
 and add this section to **config/octane.php** file
 ```
