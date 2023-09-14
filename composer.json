@@ -9,7 +9,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "laravel/octane": "^1.2",
+        "laravel/octane": "^2.0",
         "filp/whoops": "^2.14"
     },
     "bin": [
