@@ -14,5 +14,12 @@
     },
     "bin": [
         "bin/urgent-swoole-server"
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ensi\\LaravelOctaneStarter\\OctaneStarterServiceProvider"
+            ]
+        }
+    }
 }
