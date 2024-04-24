@@ -20,10 +20,9 @@ class OctaneProdStarerCommand extends StartSwooleCommand
 
     public function handle(
         ServerProcessInspector $inspector,
-        ServerStateFile        $serverStateFile,
-        SwooleExtension        $extension
-    ): int
-    {
+        ServerStateFile $serverStateFile,
+        SwooleExtension $extension
+    ): int {
         if (!$extension->isInstalled()) {
             $this->error('The Swoole extension is missing.');
 

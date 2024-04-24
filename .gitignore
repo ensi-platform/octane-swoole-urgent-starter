@@ -2,3 +2,6 @@
 .vscode
 vendor
 composer.lock
+.php_cs.cache
+.php-cs-fixer.cache
+phpstan.neon

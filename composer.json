@@ -12,6 +12,9 @@
         "laravel/octane": "^2.0",
         "filp/whoops": "^2.14"
     },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "dev-master"
+    },
     "bin": [
         "bin/urgent-swoole-server"
     ],
@@ -21,5 +24,8 @@
                 "Ensi\\LaravelOctaneStarter\\OctaneStarterServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "cs": "php-cs-fixer fix --config .php-cs-fixer.php"
     }
 }
