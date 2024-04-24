@@ -17,6 +17,7 @@ class OnWorkerStart extends OriginalOnWorkerStart
     protected function bootWorker($server): WorkerContract
     {
         $this->workerState->client = new SwooleClient();
+
         try {
             return tap(new Worker(
                 new ApplicationFactory($this->basePath),
@@ -28,8 +29,8 @@ class OnWorkerStart extends OriginalOnWorkerStart
             ]);
         } catch (Throwable $e) {
             Stream::throwable($e);
+
             return new EmergencyWorker($this->workerState->client, $e, $this->serverState);
         }
     }
-
 }
