@@ -38,7 +38,7 @@ $serverState = json_decode(file_get_contents(
     $serverStateFile = $_SERVER['argv'][1]
 ), true)['state'];
 
-Swoole\Runtime::enableCoroutine(true,SWOOLE_HOOK_ALL);
+Swoole\Runtime::enableCoroutine(true,SWOOLE_HOOK_NATIVE_CURL);
 
 $server = require $octanePath . '/bin/createSwooleServer.php';
 
