@@ -13,7 +13,6 @@ use Swoole\Timer;
 
 ini_set('display_errors', 'stderr');
 
-
 $octanePath = __DIR__ . '/../../../laravel/octane';
 
 if (!file_exists($octanePath)) {
@@ -38,6 +37,8 @@ $bootstrap = fn($serverState) => require $octanePath . '/bin/bootstrap.php';
 $serverState = json_decode(file_get_contents(
     $serverStateFile = $_SERVER['argv'][1]
 ), true)['state'];
+
+Swoole\Runtime::enableCoroutine(true,SWOOLE_HOOK_ALL);
 
 $server = require $octanePath . '/bin/createSwooleServer.php';
 
