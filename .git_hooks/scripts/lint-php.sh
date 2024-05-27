@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# В данном хуке выполняется линтинг всех добавленных в коммит php файлов через php -l
+# Lint all added php-files via 'php -l'
 
 ROOT_DIR="$(pwd)/"
 LIST=$(git diff-index --cached --name-only --diff-filter=ACMR HEAD)

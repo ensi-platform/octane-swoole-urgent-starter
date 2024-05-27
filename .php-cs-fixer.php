@@ -1,9 +1,12 @@
 <?php
 
 $finder = Symfony\Component\Finder\Finder::create()
-    ->notPath('vendor')
-    ->in(__DIR__)
+    ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ])
     ->name('*.php')
+    ->notName('*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
@@ -36,6 +39,5 @@ return (new PhpCsFixer\Config())
         'single_trait_insert_per_statement' => true,
         'no_whitespace_in_blank_line' => true,
         'method_chaining_indentation' => true,
-        'single_space_around_construct' => true,
     ])
     ->setFinder($finder);

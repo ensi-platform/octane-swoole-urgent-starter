@@ -1,15 +1,21 @@
 # Alternative Laravel Octane swoole server starter
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ensi/octane-swoole-urgent-starter.svg?style=flat-square)](https://packagist.org/packages/ensi/octane-swoole-urgent-starter)
+[![Tests](https://github.com/ensi-platform/octane-swoole-urgent-starter/actions/workflows/run-tests.yml/badge.svg?branch=master)](https://github.com/ensi-platform/octane-swoole-urgent-starter/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/ensi/octane-swoole-urgent-starter.svg?style=flat-square)](https://packagist.org/packages/ensi/octane-swoole-urgent-starter)
+
 This package adds alternative behaviour to octane server for dev and prod usage.  
 **Dev:** server process continue work even if syntax error appears in code.  
 **Prod:** you can start swoole master process directly, without artisan command, which consumes some memory.
 
 ## Installation
 
-Install package
-```
+You can install the package via composer:
+
+```bash
 composer require ensi/octane-swoole-urgent-starter
 ```
+
 and add this section to **config/octane.php** file
 ```
 'swoole' => [
@@ -18,7 +24,14 @@ and add this section to **config/octane.php** file
 ]
 ```
 
-## Usage
+## Version Compatibility
+
+| Laravel Octane swoole server starter | Laravel Octane    | PHP  |
+|--------------------------------------|-------------------|------|
+| ^0.1.0                               | ^1.2              | *    |
+| ^2.0.0                               | ^2.0              | ^8.1 |
+
+## Basic Usage
 
 ### Dev
 Just start octane server with swoole backend and --watch option,
@@ -50,6 +63,19 @@ You should to replace last artisan command in templates/swoole-X.X/php/entrypoin
 OCTANE_SHOW_FATAL_ERROR=true php artisan octane:swoole --watch --host=0.0.0.0 --workers=1 --task-workers=1 || sleep 3600
 ```
 
+## Contributing
+
+Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
+
+### Testing
+
+1. composer install
+2. composer test
+
+## Security Vulnerabilities
+
+Please review [our security policy](.github/SECURITY.md) on how to report security vulnerabilities.
+
 ## License
 
-[Открытая лицензия на право использования программы для ЭВМ Greensight Ecom Platform (GEP)](LICENSE.md).
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
