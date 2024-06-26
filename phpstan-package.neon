@@ -1,0 +1,3 @@
+parameters:
+    bootstrapFiles:
+        - vendor/laravel/octane/bin/WorkerState.php
