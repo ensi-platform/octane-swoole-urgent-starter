@@ -19,14 +19,18 @@ class OnWorkerStart extends OriginalOnWorkerStart
         $this->workerState->client = new SwooleClient();
 
         try {
-            return tap(new Worker(
+            $worker = new Worker(
                 new ApplicationFactory($this->basePath),
                 $this->workerState->client,
-            ))->boot([
+            );
+
+            $worker->boot([
                 'octane.cacheTable' => $this->workerState->cacheTable,
                 Server::class => $server,
                 WorkerState::class => $this->workerState,
             ]);
+
+            return $worker;
         } catch (Throwable $e) {
             Stream::throwable($e);
 
